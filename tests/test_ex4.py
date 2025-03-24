@@ -1,5 +1,5 @@
 import pytest
-
+from django.contrib.auth.models import User
 
 # @pytest.fixture()
 # def user_1(db):
@@ -23,6 +23,18 @@ import pytest
 #     assert user_1.username == "test-user"
 
 
-def test_new_user(new_user2):
-    print(new_user2.is_staff)
-    assert new_user2.is_staff
+# def test_new_user(new_user2):
+#     print(new_user2.is_staff)
+#     assert new_user2.is_staff
+
+
+# @pytest.mark.django_db
+# def test_new_user(new_user1):
+#     print(new_user1.username)
+#     assert True
+
+
+def test_product(db, product_factory):
+    product = product_factory.create()
+    print(product.description)
+    assert True
